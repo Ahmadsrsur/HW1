@@ -94,7 +94,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        // onSensorChanged gets called for each sensor so we have to remember the values
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             mAccelerometer = event.values;
         }
@@ -111,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (success) {
                 float orientation[] = new float[3];
                 SensorManager.getOrientation(R, orientation);
-                // at this point, orientation contains the azimuth(direction), pitch and roll values.
                 azimuth = 180 * orientation[0] / Math.PI;
                 pitch = 180 * orientation[1] / Math.PI;
                 double roll = 180 * orientation[2] / Math.PI;
